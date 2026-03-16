@@ -87,7 +87,7 @@ export function Experience() {
 
       <div className="max-w-3xl mx-auto relative z-10">
         <h2
-          className={`flex items-center gap-4 text-3xl md:text-4xl font-bold text-foreground mb-12 transition-all duration-700 neon-glow ${
+          className={`flex items-center gap-4 text-xl md:text-4xl font-bold text-foreground mb-12 transition-all duration-700 neon-glow ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
