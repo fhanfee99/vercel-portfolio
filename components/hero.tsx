@@ -105,7 +105,7 @@ export function Hero() {
           </h1>
 
           {/* Tagline */}
-          <h2 className="text-2xl md:text-3xl font-bold text-muted-foreground mb-6 leading-relaxed">
+          <h2 className="text-xl md:text-3xl font-bold text-muted-foreground mb-6 leading-relaxed">
             Full-Stack Developer building scalable <span className="text-accent neon-glow-secondary">Web, API, Shopify & AI-powered</span> solutions.
           </h2>
 
