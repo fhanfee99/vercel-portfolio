@@ -199,9 +199,9 @@ export function Hero() {
       {/* Project Cards Preview - appears on scroll */}
       <div ref={cardsContainerRef} className="relative z-10 px-6 md:px-12 lg:px-20 py-20 grid md:grid-cols-3 gap-6">
         {[
-          { title: "Shopify Stores", desc: "Custom ecommerce solutions" },
-          { title: "Web Apps", desc: "Full-stack applications" },
-          { title: "AI Integration", desc: "Smart features & automation" },
+          { title: "Shopify Stores", desc: "Custom ecommerce solutions", icon: "/icons8-e-commerce.gif" },
+          { title: "Web Apps", desc: "Full-stack applications", icon: "/gifs/shopify.gif"  },
+          { title: "AI Integration", desc: "Smart features & automation", icon: "/icons8-critical-thinking.gif"  },
         ].map((item, idx) => (
           <div
             key={idx}
