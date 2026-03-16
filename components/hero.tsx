@@ -200,14 +200,21 @@ export function Hero() {
       <div ref={cardsContainerRef} className="relative z-10 px-6 md:px-12 lg:px-20 py-20 grid md:grid-cols-3 gap-6">
         {[
           { title: "Shopify Stores", desc: "Custom ecommerce solutions", icon: "/icons8-e-commerce.gif" },
-          { title: "Web Apps", desc: "Full-stack applications", icon: "/gifs/shopify.gif"  },
+          { title: "Web Apps", desc: "Full-stack applications", icon: "/icons8-backend-development.gif"  },
           { title: "AI Integration", desc: "Smart features & automation", icon: "/icons8-critical-thinking.gif"  },
         ].map((item, idx) => (
           <div
             key={idx}
             className="project-card glow-box p-6 rounded-xl border border-primary/20 hover:border-primary/50 transition-all duration-300 group cursor-pointer hover:scale-105"
           >
-            <div className="h-32 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 group-hover:from-primary/20 group-hover:to-accent/20 transition-all" />
+             {/* Animated icon */}
+      <div className="flex justify-center mb-4">
+        <img
+          src={item.icon}
+          alt={item.title}
+          className="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300"
+        />
+      </div>
             <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
             <p className="text-muted-foreground text-sm">{item.desc}</p>
           </div>
