@@ -39,7 +39,7 @@ export function Footer() {
             Designed & Built by{" "}
             <span className="text-primary neon-glow">Farhan A Hanfee</span>
             <br />
-            <span className="text-primary/60">© 2024 | Full-Stack Developer</span>
+            <span className="text-primary/60">© 2026 | Full-Stack Developer</span>
           </p>
         </div>
 
