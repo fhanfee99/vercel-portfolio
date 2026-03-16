@@ -90,43 +90,33 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 flex flex-col lg:flex-row justify-between items-center min-h-screen px-6 md:px-12 lg:px-20 py-20">
         {/* Left Content */}
-        <div className="flex-1 max-w-2xl mb-10 lg:mb-0">
+        <div className="flex-1 max-w-3xl mb-10 lg:mb-0">
           {/* Greeting */}
-          <p className="text-primary font-mono text-sm md:text-base mb-4 tracking-widest neon-glow">
-            &lt; CODE + ART /&gt;
+          <p className="text-primary font-mono text-sm md:text-base mb-6 tracking-widest neon-glow">
+            Hi, my name is
           </p>
 
           {/* Name */}
           <h1
             ref={titleRef}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-2 leading-tight"
           >
-            <span className="text-balance">Farhan</span>
-            <br />
-            <span className="neon-glow">A Hanfee</span>
+            <span className="text-balance">Farhan A Hanfee</span>
           </h1>
 
           {/* Tagline */}
-          <h2 className="text-xl md:text-2xl text-muted-foreground mb-6 font-light leading-relaxed">
-            Full-Stack Developer crafting <span className="text-accent neon-glow-secondary font-semibold">futuristic web experiences</span> with modern
-            tech & innovation
+          <h2 className="text-2xl md:text-3xl font-bold text-muted-foreground mb-6 leading-relaxed">
+            Full-Stack Developer building scalable <span className="text-accent neon-glow-secondary">Web, API, Shopify & AI-powered</span> solutions.
           </h2>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 gap-4 mb-8">
-            <div className="glow-box p-4 rounded-lg border border-primary/20">
-              <p className="text-accent font-bold text-2xl">7+</p>
-              <p className="text-muted-foreground text-sm">Years Experience</p>
-            </div>
-            <div className="glow-box-accent p-4 rounded-lg border border-accent/20">
-              <p className="text-primary font-bold text-2xl">600+</p>
-              <p className="text-muted-foreground text-sm">Projects Delivered</p>
-            </div>
-          </div>
+          {/* Description */}
+          <p className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg">
+            Full-Stack Developer with <span className="text-primary font-semibold">7+ years</span> of experience building modern web applications, custom Shopify platforms, and scalable backend APIs. I specialize in <span className="text-primary font-semibold">MERN stack, REST APIs, and AI-assisted development</span> to create efficient, scalable, and high-performance products. Delivered <span className="text-primary font-semibold">600+ projects</span> for global clients focusing on clean architecture, performance, and modern user experiences.
+          </p>
 
           {/* Tech Stack */}
-          <p className="text-sm text-muted-foreground mb-8 font-mono">
-            React • Next.js • Node.js • MongoDB • Shopify • AI-Assisted Dev
+          <p className="text-sm text-muted-foreground mb-8 font-mono tracking-wide">
+            React • Next.js • Node.js • MongoDB • Shopify • REST APIs • AI-Assisted Development
           </p>
 
           {/* Contact Info */}
