@@ -24,7 +24,6 @@ const experiences = [
       "Converted Figma / PSD designs into responsive, pixel-perfect UI",
       "Solved complex frontend issues related to variants, carts, and dynamic data",
       "Expanded into full-stack development with MERN and Python, creating scalable APIs and backend systems.",
-      ""
     ],
   },
   {
