@@ -145,7 +145,7 @@ export function Hero() {
         </div>
 
         {/* Right Side - 3D Laptop Section */}
-        <div className="flex-1 flex items-center justify-center lg:justify-end">
+        <div className="flex-1 flex items-center justify-center lg:justify-end" style={{ width: "16rem" }}>
           <div
             ref={laptopRef}
             className="relative w-full max-w-md h-96 float perspective"
