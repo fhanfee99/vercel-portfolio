@@ -11,19 +11,20 @@ const experiences = [
   {
     id: "ewg",
     company: "Ecommerce Web Guru",
-    role: "Senior Shopify Developer",
+    role: "Senior Full-Stack Developer | Shopify, MERN, Python | API, Webhooks & AI",
     period: "2018 — Present",
     highlights: [
-      "Developed and customized 600+ Shopify stores for international brands and agencies",
+      "Developed and customized 600+ Shopify stores for international clients, delivering custom themes, high-performing storefronts, and scalable eCommerce systems.",
       "Built custom API integrations and dynamic frontend logic using JavaScript and REST APIs",
-"Developed advanced Shopify features including subscriptions, bundles, and automation workflows",
+      "Developed advanced Shopify features including subscriptions, bundles, and automation workflows",
       "Built custom Shopify themes & OS 2.0 sections from scratch",
       "Implemented complex cart drawer logic, discounts, and free-gift flows",
       "Created advanced product pages (subscriptions, bundles, variants)",
       "Integrated Appstle / Recharge with dynamic UI logic",
-      "Improved store performance (speed score 40–50 → 80–90+)",
       "Converted Figma / PSD designs into responsive, pixel-perfect UI",
       "Solved complex frontend issues related to variants, carts, and dynamic data",
+      "Expanded into full-stack development with MERN and Python, creating scalable APIs and backend systems.",
+      ""
     ],
   },
   {
