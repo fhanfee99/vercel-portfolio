@@ -212,7 +212,7 @@ export function Hero() {
         <img
           src={item.icon}
           alt={item.title}
-          className="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300"
+          className="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300 scale-[1.8]"
         />
       </div>
             <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
