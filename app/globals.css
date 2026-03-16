@@ -272,7 +272,7 @@
 
   .bg-background {
     background: rgba(18, 18, 27, 0.3) !important;
-    backdrop-filter: blur(10px) saturate(150%);
+    backdrop-filter: blur(2px) saturate(150%);
   }
 
   .glassmorphic-primary {
