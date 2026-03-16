@@ -143,10 +143,10 @@ Here are a few technologies I've been working with recently:
                   <div className="absolute inset-0 neon-grid opacity-30" />
                   <div className="relative z-10 text-center">
                     <p className="text-3xl md:text-4xl font-bold neon-glow font-mono mb-2">
-                      FA
+                      Farhan A Hanfee
                     </p>
                     <p className="text-xs text-primary/80 font-mono tracking-widest">
-                      DEVELOPER
+                      Building Shopify Stores, Web Apps & AI-Powered Solutions
                     </p>
                   </div>
                 </div>
