@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { BackgroundEffects } from "@/components/background-effects"
 import "./globals.css"
 
 const geist = Geist({
@@ -49,13 +50,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${geist.variable} ${geistMono.variable} font-sans antialiased relative overflow-x-hidden`}
       >
-        <Navigation />
-
-        <main>{children}</main>
-
-        <Footer />
+        <BackgroundEffects />
+        
+        <div className="relative z-20">
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+        </div>
 
         <Analytics />
       </body>

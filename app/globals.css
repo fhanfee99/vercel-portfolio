@@ -163,4 +163,169 @@
   .animation-delay-4 {
     animation-delay: 4s;
   }
+
+  /* Particle and advanced effects */
+  @keyframes particle-float {
+    0% { opacity: 1; transform: translateY(0) translateX(0); }
+    100% { opacity: 0; transform: translateY(-100px) translateX(var(--tx)); }
+  }
+
+  @keyframes typing {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
+
+  @keyframes cursor-blink {
+    0%, 49% { border-color: oklch(0.65 0.22 280); }
+    50%, 100% { border-color: transparent; }
+  }
+
+  @keyframes scan-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  @keyframes code-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+    50% { transform: translateY(-20px) rotate(2deg); opacity: 0.6; }
+  }
+
+  @keyframes hologram {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes cyber-pulse {
+    0%, 100% { 
+      text-shadow: 0 0 10px oklch(0.65 0.22 280 / 0.8), 0 0 20px oklch(0.65 0.22 280 / 0.4);
+    }
+    50% { 
+      text-shadow: 0 0 20px oklch(0.65 0.22 280 / 1), 0 0 40px oklch(0.60 0.20 180 / 0.6);
+    }
+  }
+
+  @keyframes rotate-in-3d {
+    from { opacity: 0; transform: rotateX(90deg) rotateY(45deg); }
+    to { opacity: 1; transform: rotateX(0) rotateY(0); }
+  }
+
+  @keyframes slide-up-fade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scale-in-bounce {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  .particle-float {
+    animation: particle-float 3s ease-out forwards;
+  }
+
+  .typing {
+    animation: typing 3s steps(40, end) forwards;
+    overflow: hidden;
+    border-right: 3px solid oklch(0.65 0.22 280);
+    white-space: nowrap;
+    animation-name: typing, cursor-blink;
+    animation-duration: 3s, 0.75s;
+    animation-timing-function: steps(40, end), step-end;
+    animation-iteration-count: 1, infinite;
+  }
+
+  .scan-line {
+    animation: scan-line 8s linear infinite;
+  }
+
+  .code-float {
+    animation: code-float 4s ease-in-out infinite;
+  }
+
+  .hologram {
+    animation: hologram 3s ease-in-out infinite;
+  }
+
+  .cyber-pulse {
+    animation: cyber-pulse 2s ease-in-out infinite;
+  }
+
+  .rotate-in-3d {
+    animation: rotate-in-3d 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+
+  .slide-up-fade {
+    animation: slide-up-fade 0.6s ease-out forwards;
+  }
+
+  .scale-in-bounce {
+    animation: scale-in-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+
+  /* Glass morphism effects */
+  .glassmorphic {
+    background: rgba(18, 18, 27, 0.8);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(101, 142, 255, 0.2);
+  }
+
+  .glassmorphic-primary {
+    background: rgba(165, 102, 255, 0.1);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(165, 102, 255, 0.3);
+  }
+
+  /* Cyber grid background pattern */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(0deg, oklch(0.65 0.22 280 / 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.65 0.22 280 / 0.15) 1px, transparent 1px);
+    background-size: 100px 100px;
+    position: relative;
+  }
+
+  .cyber-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      transparent 48%,
+      oklch(0.65 0.22 280 / 0.03) 49%,
+      oklch(0.65 0.22 280 / 0.03) 51%,
+      transparent 52%
+    );
+    background-size: 30px 30px;
+    pointer-events: none;
+  }
+
+  /* Neon border effect */
+  .neon-border {
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(rgba(18, 18, 27, 0.95), rgba(18, 18, 27, 0.95)) padding-box,
+                linear-gradient(135deg, oklch(0.65 0.22 280), oklch(0.60 0.20 180)) border-box;
+    box-shadow: 0 0 20px oklch(0.65 0.22 280 / 0.4), inset 0 0 20px oklch(0.65 0.22 280 / 0.1);
+  }
+
+  .neon-border:hover {
+    box-shadow: 0 0 40px oklch(0.65 0.22 280 / 0.6), inset 0 0 30px oklch(0.65 0.22 280 / 0.2);
+  }
+
+  /* Code highlight effect */
+  .code-highlight {
+    background: linear-gradient(120deg, oklch(0.65 0.22 280 / 0.1) 0%, transparent 100%);
+    border-left: 3px solid oklch(0.65 0.22 280);
+    padding-left: 12px;
+  }
+
+  /* Perspective transforms */
+  .perspective-3d {
+    perspective: 1000px;
+  }
+
+  .perspective-child {
+    transform-style: preserve-3d;
+  }
 }
