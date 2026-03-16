@@ -99,7 +99,7 @@ export function Hero() {
           {/* Name */}
           <h1
             ref={titleRef}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-2 leading-tight"
+            className="text-2xl md:text-6xl lg:text-7xl font-bold text-foreground mb-2 leading-tight"
           >
             <span className="text-balance">Farhan A Hanfee</span>
           </h1>
