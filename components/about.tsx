@@ -70,7 +70,7 @@ export function About() {
 
       <div className="max-w-4xl mx-auto relative z-10">
         <h2
-          className={`flex items-center gap-4 text-3xl md:text-4xl font-bold text-foreground mb-12 transition-all duration-700 neon-glow ${
+          className={`flex items-center gap-4 text-2xl md:text-4xl font-bold text-foreground mb-12 transition-all duration-700 neon-glow ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
