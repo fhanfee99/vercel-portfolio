@@ -142,7 +142,7 @@ Here are a few technologies I've been working with recently:
                   {/* Grid overlay */}
                   <div className="absolute inset-0 neon-grid opacity-30" />
                   <div className="relative z-10 text-center">
-                    <p className="text-3xl md:text-4xl font-bold neon-glow font-mono mb-2">
+                    <p className="text-xl md:text-xl font-bold neon-glow font-mono mb-2">
                       Farhan A Hanfee
                     </p>
                     <p className="text-xs text-primary/80 font-mono tracking-widest">
