@@ -116,7 +116,7 @@ export function Hero() {
 
           {/* Tech Stack */}
           <p className="text-sm text-muted-foreground mb-8 font-mono tracking-wide">
-            React • Next.js • Node.js • MongoDB • Shopify • REST APIs • AI-Assisted Development
+            React • Next.js • Node.js • Python • MongoDB • Shopify • REST APIs • AI-Assisted Development
           </p>
 
           {/* Contact Info */}
