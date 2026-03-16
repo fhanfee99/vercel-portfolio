@@ -197,7 +197,7 @@ export function Hero() {
       </div>
 
       {/* Project Cards Preview - appears on scroll */}
-      <div ref={cardsContainerRef} className="relative z-10 px-6 md:px-12 lg:px-20 py-20 grid md:grid-cols-3 gap-6">
+      <div ref={cardsContainerRef} className="relative z-10 px-6 md:px-12 text-center lg:px-20 py-20 grid md:grid-cols-3 gap-6">
         {[
           { title: "Shopify Stores", desc: "Custom ecommerce solutions", icon: "/Ecommerce.gif" },
           { title: "Web Apps", desc: "Full-stack applications", icon: "/Development%20and%20coding.gif"  },
