@@ -43,12 +43,6 @@ export function Footer() {
           </p>
         </div>
 
-        {/* Bottom decoration */}
-        <div className="mt-8 pt-8 border-t border-primary/10 flex items-center justify-center gap-2 text-xs text-muted-foreground font-mono">
-          <span className="text-accent">&lt;</span>
-          <span>Made with Next.js, React & Tailwind</span>
-          <span className="text-accent">/&gt;</span>
-        </div>
       </div>
     </footer>
   );
