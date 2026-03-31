@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom"; // Modal ko layout se bahar nikalne ke liye
 import { X, ExternalLink } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,9 +22,12 @@ const projectsData = [
 
 export function ProjectsSection() {
   const [activeProject, setActiveProject] = useState<typeof projectsData[0] | null>(null);
+  const [mounted, setMounted] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
 
+  // Client-side mount check for Portals
   useEffect(() => {
+    setMounted(true);
     const ctx = gsap.context(() => {
       gsap.from(".project-card", {
         opacity: 0, y: 50, stagger: 0.1, duration: 0.6,
@@ -36,15 +40,14 @@ export function ProjectsSection() {
   const openModal = (p: typeof projectsData[0]) => {
     setActiveProject(p);
     document.body.style.overflow = "hidden";
-    // Extra safety: force body to not scroll
-    document.documentElement.style.overflow = "hidden";
   };
 
   const closeModal = () => {
     setActiveProject(null);
     document.body.style.overflow = "auto";
-    document.documentElement.style.overflow = "auto";
   };
+
+  if (!mounted) return null;
 
   return (
     <section className="relative py-24 bg-black text-white min-h-screen">
@@ -70,17 +73,14 @@ export function ProjectsSection() {
         </div>
       </div>
 
-      {/* --- FORCED POPUP OVERLAY --- */}
-      {activeProject && (
+      {/* --- MODAL USING REACT PORTAL --- */}
+      {activeProject && createPortal(
         <div 
           style={{
             position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
+            inset: 0,
             backgroundColor: 'rgba(0, 0, 0, 0.95)',
-            zIndex: 2147483647, // Maximum possible Z-index
+            zIndex: 999999,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -93,81 +93,53 @@ export function ProjectsSection() {
               position: 'relative',
               backgroundColor: '#0a0a0a',
               width: '100%',
-              maxWidth: '1100px',
-              maxHeight: '90vh',
+              maxWidth: '1000px',
+              display: 'flex',
+              flexDirection: 'column', // Simple stack for safety
               borderRadius: '24px',
               border: '1px solid rgba(255,255,255,0.1)',
-              display: 'flex',
-              flexDirection: window.innerWidth < 768 ? 'column' : 'row',
               overflow: 'hidden',
-              boxShadow: '0 0 50px rgba(0,0,0,0.5)'
+              boxShadow: '0 0 100px rgba(0,0,0,1)'
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
+            {/* Close */}
             <button 
               onClick={closeModal}
-              style={{
-                position: 'absolute',
-                top: '20px',
-                right: '20px',
-                zIndex: 10,
-                padding: '10px',
-                background: 'rgba(255,255,255,0.1)',
-                border: 'none',
-                borderRadius: '50%',
-                cursor: 'pointer',
-                color: 'white'
-              }}
+              className="absolute top-4 right-4 z-50 p-2 bg-white/10 rounded-full text-white"
             >
               <X size={24} />
             </button>
 
-            {/* Image Container */}
-            <div style={{ flex: 1, backgroundColor: '#111', position: 'relative', minHeight: '300px' }}>
-              <div style={{ position: 'absolute', inset: 0, padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img 
-                  src={activeProject.src} 
-                  alt={activeProject.title} 
-                  style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
-                />
-              </div>
-            </div>
+            {/* Desktop Flex Wrapper */}
+            <div className="flex flex-col md:flex-row h-full">
+                {/* Image */}
+                <div className="w-full md:w-3/5 bg-[#111] relative h-[300px] md:h-[500px] flex items-center justify-center p-4">
+                  <img 
+                    src={activeProject.src} 
+                    alt={activeProject.title} 
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
 
-            {/* Content Container */}
-            <div style={{ flex: 0.8, padding: '40px', backgroundColor: '#0a0a0a', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <span style={{ color: '#2563eb', fontSize: '12px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '10px' }}>
-                {activeProject.category}
-              </span>
-              <h2 style={{ fontSize: '32px', fontWeight: 'bold', color: 'white', marginBottom: '20px' }}>
-                {activeProject.title}
-              </h2>
-              <p style={{ color: '#a1a1aa', fontSize: '16px', lineHeight: '1.6', marginBottom: '30px' }}>
-                {activeProject.description}
-              </p>
-              
-              <a 
-                href={activeProject.url} 
-                target="_blank" 
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '10px',
-                  backgroundColor: '#2563eb',
-                  color: 'white',
-                  padding: '16px',
-                  borderRadius: '12px',
-                  textDecoration: 'none',
-                  fontWeight: 'bold',
-                  textAlign: 'center'
-                }}
-              >
-                Launch Project <ExternalLink size={18} />
-              </a>
+                {/* Content */}
+                <div className="w-full md:w-2/5 p-8 md:p-10 flex flex-col justify-center bg-[#0a0a0a]">
+                  <span className="text-blue-500 font-mono text-xs uppercase mb-2 tracking-widest">{activeProject.category}</span>
+                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">{activeProject.title}</h2>
+                  <p className="text-zinc-400 mb-8 leading-relaxed">{activeProject.description}</p>
+                  
+                  <a 
+                    href={activeProject.url} 
+                    target="_blank" 
+                    className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl text-center flex items-center justify-center gap-2"
+                  >
+                    Launch Project <ExternalLink size={18} />
+                  </a>
+                </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body // This moves the modal to the very end of <body> tag
       )}
     </section>
   );
