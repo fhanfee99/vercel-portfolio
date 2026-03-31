@@ -15,9 +15,9 @@ const projectsData = [
   { id: 3, title: "Personalized Product Engine", category: "Shopify Liquid / AJAX API", description: "Developed a robust custom property system allowing users to add personalized data (text, files, or dates) to specific products. Leveraged Shopify's Line Item Properties and the AJAX Cart API to ensure custom data flows seamlessly from the product page to the final order fulfillment, improving order accuracy by 100%.", src: "/projects/fe8d02_8e86163e54954f2d81bf217db46da1e9~mv2 (1).png", url: "#" },
   { id: 4, title: "Nectar & Bloom Visual Identity", category: "Brand Design / Packaging", description: "Created a premium packaging system for an organic honey brand. Focused on a 'Modern Artisan' aesthetic using custom hexagonal grid patterns and gold-foil typography to position the product in the luxury gourmet market.", src: "/projects/fe8d02_42e35d21ce9749319e03ec47320ffd69~mv2.png", url: "#" },
   { id: 5, title: "Interactive Typography Previewer", category: "Next.js / Canvas API", description: "Developed a real-time font customization engine for personalized products. Integrated a dynamic preview layer using the HTML5 Canvas API, allowing customers to visualize their custom text in multiple premium fonts before adding to cart. Reduced pre-shipment revisions by 40% through accurate 'What You See Is What You Get' (WYSIWYG) logic.", src: "/projects/fe8d02_85a5983f109b4df7aa2aa7d96d3e4c03~mv2.png", url: "#" },
-  { id: 6, title: "Global Store Rollout", category: "Shopify Plus", description: "Scaling a local brand to international markets with multi-currency support.", src: "/projects/fe8d02_04720a25d2a740839075e51980a10455~mv2.png", url: "#" },
-  { id: 7, title: "Performance Optimization", category: "Core Web Vitals", description: "99+ PageSpeed score achievement for a heavy-traffic digital store.", src: "/projects/fe8d02_906939e4c0cc4e50b3c59983ed360e08~mv2.png", url: "#" },
-  { id: 8, title: "Automation Workflow", category: "Node.js / Automation", description: "Custom internal tools to automate order processing and customer support.", src: "/projects/fe8d02_ff517fb7aab84cc483d6c5e95808af0c~mv2.png", url: "#" }
+  { id: 6, title: "Nectar & Bloom Logo Identity", category: "Logo Design / Visual Identity", description: "Developed a comprehensive visual identity system for a premium honey brand. Designed a modern, flexible logo centered around a stylized bee and honeycomb icon. The identity balances luxury aesthetics with organic trust, ensuring scalability across print labels and digital platforms.", src: "/projects/fe8d02_04720a25d2a740839075e51980a10455~mv2.png", url: "#" },
+  { id: 7, title: "High-Performance Commerce Engine", category: "Next.js / Headless Shopify", description: "Architected a headless eCommerce solution using Next.js 14 and the Shopify Storefront API. Optimized Core Web Vitals to achieve a 98+ Lighthouse score, implementing server-side rendering (SSR) and incremental static regeneration (ISR) to handle high-traffic product launches without latency.", src: "/projects/fe8d02_906939e4c0cc4e50b3c59983ed360e08~mv2.png", url: "#" },
+  { id: 8, title: "Modular Theme Architecture", category: "Shopify Liquid / Schema API", description: "Developed a library of high-performance custom Shopify sections with dynamic Schema settings. Empowered merchants to build complex page layouts using a drag-and-drop interface, reducing the need for third-party page builder apps and improving site speed by 30%.", src: "/projects/fe8d02_ff517fb7aab84cc483d6c5e95808af0c~mv2.png", url: "#" }
 ];
 
 export function ProjectsSection() {
@@ -127,7 +127,7 @@ export function ProjectsSection() {
                   <span className="text-blue-500 font-mono text-xs uppercase mb-2 tracking-widest">{activeProject.category}</span>
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">{activeProject.title}</h2>
                   <p className="text-zinc-400 mb-8 leading-relaxed">{activeProject.description}</p>
-                  
+                  {activeProject.url !== "#" && (
                   <a 
                     href={activeProject.url} 
                     target="_blank" 
@@ -135,6 +135,7 @@ export function ProjectsSection() {
                   >
                     Launch Project <ExternalLink size={18} />
                   </a>
+                  )}
                 </div>
             </div>
           </div>
