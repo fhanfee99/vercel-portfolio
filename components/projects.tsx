@@ -96,9 +96,7 @@ export function ProjectsSection() {
     return () => ctx.revert();
   }, []);
 
-  // Modal open logic with immediate body lock
   const openModal = (project: typeof projectsData[0]) => {
-    console.log("Opening project:", project.title); // Debugging ke liye
     setActiveProject(project);
     document.body.style.overflow = "hidden";
   };
@@ -115,12 +113,9 @@ export function ProjectsSection() {
           <h2 className="text-5xl md:text-7xl font-black mb-4 uppercase tracking-tighter italic">
             Featured <span className="text-blue-600">Projects</span>
           </h2>
-          <p className="text-zinc-500 font-mono text-xs tracking-[0.4em] uppercase">
-            // High Performance Solutions Delivered
-          </p>
+          <p className="text-zinc-500 font-mono text-xs tracking-[0.4em] uppercase">// High Performance Solutions</p>
         </div>
 
-        {/* Project Grid */}
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.map((project) => (
             <div
@@ -135,52 +130,49 @@ export function ProjectsSection() {
                 className="object-cover opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent p-6 flex flex-col justify-end">
-                <span className="text-blue-500 font-mono text-[10px] uppercase tracking-widest mb-1">{project.category}</span>
-                <h3 className="text-xl font-bold group-hover:text-blue-400 transition-colors">{project.title}</h3>
-                <div className="mt-4 flex items-center gap-2 text-xs font-medium text-white/0 group-hover:text-white/100 transition-all">
-                  <Search size={14} className="text-blue-500" /> Click to Expand
-                </div>
+                <span className="text-blue-500 font-mono text-[10px] uppercase mb-1">{project.category}</span>
+                <h3 className="text-xl font-bold">{project.title}</h3>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* --- RE-ENGINEERED MODAL SYSTEM --- */}
+      {/* --- MODAL FIX --- */}
       {activeProject && (
         <div 
-          className="fixed inset-0 flex items-center justify-center p-4 md:p-8 z-[9999]" 
-          style={{ backgroundColor: 'rgba(0, 0, 0, 0.95)' }}
+          className="fixed inset-0 flex items-center justify-center p-4 md:p-8 z-[9999] bg-black/95 backdrop-blur-md" 
           onClick={closeModal}
         >
           <div 
-            className="relative w-full max-w-5xl bg-zinc-950 rounded-[2rem] overflow-hidden border border-zinc-800 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row min-h-[400px]"
+            className="relative w-full max-w-5xl bg-zinc-950 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl flex flex-col md:flex-row h-auto max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button 
               onClick={closeModal}
-              className="absolute top-6 right-6 z-[10000] p-3 rounded-full bg-white/5 hover:bg-white/20 text-white transition-all border border-white/10"
+              className="absolute top-4 right-4 z-[100] p-2 rounded-full bg-black/50 text-white hover:bg-white/20 border border-white/10"
             >
-              <X size={20} />
+              <X size={24} />
             </button>
 
-            {/* Image Section */}
-            <div className="w-full md:w-3/5 relative bg-black min-h-[250px]">
+            {/* Image Section - Fixed Height for Mobile */}
+            <div className="w-full md:w-3/5 relative min-h-[300px] md:min-h-[500px] bg-zinc-900">
               <Image 
                 src={activeProject.src} 
                 alt={activeProject.title} 
                 fill 
-                className="object-contain p-4"
+                className="object-contain p-2 md:p-6"
                 priority
+                unoptimized // Vercel par path issue prevent karne ke liye
               />
             </div>
 
             {/* Info Section */}
-            <div className="w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-center bg-zinc-950">
-              <span className="text-blue-500 font-mono text-xs uppercase tracking-widest mb-4 inline-block">{activeProject.category}</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">{activeProject.title}</h2>
-              <p className="text-zinc-400 text-base md:text-lg leading-relaxed mb-10">
+            <div className="w-full md:w-2/5 p-8 flex flex-col justify-center overflow-y-auto bg-zinc-950">
+              <span className="text-blue-500 font-mono text-xs uppercase tracking-widest mb-2">{activeProject.category}</span>
+              <h2 className="text-3xl font-bold text-white mb-4">{activeProject.title}</h2>
+              <p className="text-zinc-400 text-sm md:text-base leading-relaxed mb-8">
                 {activeProject.description}
               </p>
               
@@ -188,9 +180,9 @@ export function ProjectsSection() {
                 href={activeProject.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-3 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-blue-900/20"
+                className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all"
               >
-                Launch Project <ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                Launch Project <ExternalLink size={18} />
               </a>
             </div>
           </div>
