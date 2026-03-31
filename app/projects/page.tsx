@@ -1,117 +1,115 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom"; 
+import { X, ExternalLink } from "lucide-react";
 
-const media = [
-  { type: "image", src: "/projects/checkout_abd.png" },
-  { type: "image", src: "/projects/fe8d02_5fb7c92385224e899c7c0852033293e4~mv2.png" },
-  { type: "image", src: "/projects/fe8d02_8e86163e54954f2d81bf217db46da1e9~mv2 (1).png" },
-  { type: "image", src: "/projects/fe8d02_42e35d21ce9749319e03ec47320ffd69~mv2.png" },
-  { type: "image", src: "/projects/fe8d02_85a5983f109b4df7aa2aa7d96d3e4c03~mv2.png" },
-  { type: "image", src: "/projects/fe8d02_04720a25d2a740839075e51980a10455~mv2.png" },
-  { type: "image", src: "/projects/fe8d02_906939e4c0cc4e50b3c59983ed360e08~mv2.png" },
-  { type: "image", src: "/projects/fe8d02_ff517fb7aab84cc483d6c5e95808af0c~mv2.png" },
+// Content exactly same as your component
+const projectsData = [
+  { id: 1, title: "Dynamic Checkout Optimizer", category: "Next.js / Shopify Logic", description: "Engineered a custom checkout middleware using Node.js and Shopify’s AJAX API to solve price flickering and cart abandonment. Implemented server-side logic to fetch real-time fixed pricing, bypassing client-side delays and increasing checkout completion by 18%.", src: "/projects/checkout_abd.png", url: "#" },
+  { id: 2, title: "Bespoke Subscription Engine", category: "React / Shopify Subscription API", description: "Developed a high-end subscription interface with custom-designed variant selectors. Integrated Shopify's Subscription API with a headless React frontend to manage recurring billing logic, resulting in a 35% increase in Subscriber Lifetime Value (LTV).", src: "/projects/fe8d02_5fb7c92385224e899c7c0852033293e4~mv2.png", url: "#" },
+  { id: 3, title: "Personalized Product Engine", category: "Shopify Liquid / AJAX API", description: "Developed a robust custom property system allowing users to add personalized data (text, files, or dates) to specific products. Leveraged Shopify's Line Item Properties and the AJAX Cart API to ensure custom data flows seamlessly from the product page to the final order fulfillment, improving order accuracy by 100%.", src: "/projects/fe8d02_8e86163e54954f2d81bf217db46da1e9~mv2 (1).png", url: "#" },
+  { id: 4, title: "Nectar & Bloom Visual Identity", category: "Brand Design / Packaging", description: "Created a premium packaging system for an organic honey brand. Focused on a 'Modern Artisan' aesthetic using custom hexagonal grid patterns and gold-foil typography to position the product in the luxury gourmet market.", src: "/projects/fe8d02_42e35d21ce9749319e03ec47320ffd69~mv2.png", url: "#" },
+  { id: 5, title: "Interactive Typography Previewer", category: "Next.js / Canvas API", description: "Developed a real-time font customization engine for personalized products. Integrated a dynamic preview layer using the HTML5 Canvas API, allowing customers to visualize their custom text in multiple premium fonts before adding to cart. Reduced pre-shipment revisions by 40% through accurate 'What You See Is What You Get' (WYSIWYG) logic.", src: "/projects/fe8d02_85a5983f109b4df7aa2aa7d96d3e4c03~mv2.png", url: "#" },
+  { id: 6, title: "Nectar & Bloom Logo Identity", category: "Logo Design / Visual Identity", description: "Developed a comprehensive visual identity system for a premium honey brand. Designed a modern, flexible logo centered around a stylized bee and honeycomb icon. The identity balances luxury aesthetics with organic trust, ensuring scalability across print labels and digital platforms.", src: "/projects/fe8d02_04720a25d2a740839075e51980a10455~mv2.png", url: "#" },
+  { id: 7, title: "High-Performance Commerce Engine", category: "Next.js / Headless Shopify", description: "Architected a headless eCommerce solution using Next.js 14 and the Shopify Storefront API. Optimized Core Web Vitals to achieve a 98+ Lighthouse score, implementing server-side rendering (SSR) and incremental static regeneration (ISR) to handle high-traffic product launches without latency.", src: "/projects/fe8d02_906939e4c0cc4e50b3c59983ed360e08~mv2.png", url: "#" },
+  { id: 8, title: "Modular Theme Architecture", category: "Shopify Liquid / Schema API", description: "Developed a library of high-performance custom Shopify sections with dynamic Schema settings. Empowered merchants to build complex page layouts using a drag-and-drop interface, reducing the need for third-party page builder apps and improving site speed by 30%.", src: "/projects/fe8d02_ff517fb7aab84cc483d6c5e95808af0c~mv2.png", url: "#" },
+  { id: 9, title: "JobPortal AI: Intelligent Recruitment", category: "Python / Django / OpenAI API", description: "An AI-driven recruitment engine that automates candidate screening. Built with a Django-React architecture, it uses Natural Language Processing (NLP) to rank resumes against job descriptions, providing recruiters with an automated 'Match Score' to streamline hiring.", src: "/projects/jobportalAI.png", url: "#" },
 ];
 
 export default function ProjectsPage() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentImg, setCurrentImg] = useState("");
+  const [activeProject, setActiveProject] = useState<typeof projectsData[0] | null>(null);
+  const [mounted, setMounted] = useState(false);
 
-  const openModal = (src: string) => {
-    setCurrentImg(src);
-    setIsOpen(true);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const openModal = (p: typeof projectsData[0]) => {
+    setActiveProject(p);
+    document.body.style.overflow = "hidden";
   };
 
+  const closeModal = () => {
+    setActiveProject(null);
+    document.body.style.overflow = "auto";
+  };
+
+  if (!mounted) return null;
+
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
-      <h1 className="text-4xl font-bold text-center mb-12 text-foreground">
-        Projects
+    <section className="max-w-7xl mx-auto px-6 py-20 bg-black text-white min-h-screen">
+      <h1 className="text-5xl md:text-8xl font-black text-center mb-12 uppercase italic tracking-tighter">
+        PROJECTS
       </h1>
 
-      {/* Project Overview */}
-      <div className="max-w-4xl mx-auto text-muted-foreground leading-relaxed space-y-6 mb-20">
+      {/* Intro Text */}
+      <div className="max-w-4xl mx-auto text-zinc-400 leading-relaxed space-y-6 mb-20 text-lg text-center">
         <p>
           I build scalable and high-performance eCommerce platforms and web
           applications using modern frontend technologies and robust backend
           systems.
         </p>
-        <p>
-          My work includes custom Shopify storefronts, advanced theme
-          architecture, API integrations, and performance-optimized user
-          interfaces designed to improve conversions and user experience.
-        </p>
-        <p>
-          I develop complex features such as geolocation-based inventory,
-          dynamic delivery systems, custom product logic, automation workflows,
-          and scalable backend integrations.
-        </p>
-        <p>
-          Alongside Shopify development, I also build full-stack applications
-          using Node.js, React, MongoDB, Python and REST APIs to create modern and
-          scalable web platforms.
-        </p>
       </div>
 
-      <h2 className="text-2xl font-semibold text-center mb-10 text-foreground">
-        Project Showcase
-      </h2>
-
       {/* Media Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-        {media.map((item, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projectsData.map((p) => (
           <div
-            key={index}
-            className="rounded-lg overflow-hidden cursor-pointer group"
-            onClick={() => openModal(item.src)}
+            key={p.id}
+            className="group relative aspect-video bg-zinc-900 rounded-2xl overflow-hidden cursor-pointer border border-white/10"
+            onClick={() => openModal(p)}
           >
-            <div className="relative overflow-hidden h-64 border-l-4 border-primary group-hover:border-primary/80 transition duration-300 rounded-lg">
-              <Image
-                src={item.src}
-                alt="Project Screenshot"
-                width={1920}
-                height={1080}
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
-              />
+            <Image src={p.src} alt={p.title} fill className="object-cover opacity-50 group-hover:opacity-100 transition-all unoptimized" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 p-6 flex flex-col justify-end">
+              <span className="text-blue-500 font-mono text-[10px] uppercase mb-1">{p.category}</span>
+              <h3 className="text-xl font-bold text-white">{p.title}</h3>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Modal Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setIsOpen(false)}
+      {/* --- MODAL USING REACT PORTAL (Same as Component) --- */}
+      {activeProject && createPortal(
+        <div 
+          className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[999999] flex items-center justify-center p-4"
+          onClick={closeModal}
         >
-          {/* Modal Content */}
-          <div
-            className="relative max-w-4xl w-full bg-card border border-border rounded-lg overflow-hidden"
+          <div 
+            className="relative bg-[#0a0a0a] w-full max-w-5xl flex flex-col rounded-3xl border border-white/10 overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-lg bg-background/50 hover:bg-background text-foreground transition"
-              aria-label="Close modal"
-            >
+            <button onClick={closeModal} className="absolute top-4 right-4 z-50 p-2 bg-white/10 rounded-full text-white">
               <X size={24} />
             </button>
 
-            {/* Image */}
-            <div className="relative w-full">
-              <Image
-                src={currentImg}
-                alt="Project Screenshot"
-                width={1920}
-                height={1080}
-                className="w-full h-auto"
-                priority
-              />
+            <div className="flex flex-col md:flex-row h-full">
+                {/* Project Image */}
+                <div className="w-full md:w-3/5 bg-[#111] relative h-[300px] md:h-[500px] flex items-center justify-center p-4">
+                  <img src={activeProject.src} alt={activeProject.title} className="max-w-full max-h-full object-contain" />
+                </div>
+
+                {/* Project Content */}
+                <div className="w-full md:w-2/5 p-8 md:p-10 flex flex-col justify-center bg-[#0a0a0a]">
+                  <span className="text-blue-500 font-mono text-xs uppercase mb-2 tracking-widest">{activeProject.category}</span>
+                  <h2 className="text-3xl font-bold text-white mb-4 leading-tight">{activeProject.title}</h2>
+                  <p className="text-zinc-400 mb-8 leading-relaxed">{activeProject.description}</p>
+                  
+                  {activeProject.url !== "#" ? (
+                    <a href={activeProject.url} target="_blank" className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl text-center flex items-center justify-center gap-2">
+                      Launch Project <ExternalLink size={18} />
+                    </a>
+                  ) : (
+                    <div className="text-zinc-600 text-sm italic border-t border-white/5 pt-4">
+                      Internal Case Study — Available on Request
+                    </div>
+                  )}
+                </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
