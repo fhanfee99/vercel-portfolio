@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// --- 1. PROJECT DATA (Isse aap update kar sakte hain) ---
 const projectsData = [
   {
     id: 1,
@@ -16,7 +15,7 @@ const projectsData = [
     category: "Shopify / UX",
     description: "Custom optimized checkout flow for high-conversion eCommerce performance.",
     src: "/projects/checkout_abd.png",
-    url: "https://your-link-here.com" // Yahan apni link daalein
+    url: "https://your-link-here.com" 
   },
   {
     id: 2,
