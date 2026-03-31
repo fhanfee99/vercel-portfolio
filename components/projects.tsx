@@ -67,8 +67,7 @@ export function ProjectsSection() {
             </div>
           ))}
         </div>
-        {/* MORE WORK BUTTON (Mobile) */}
-        <div className="flex md:hidden justify-center mt-8">
+        <div className="flex justify-center mt-8">
             <Link 
               href="/projects" 
               className="flex items-center gap-2 bg-white/5 border border-white/10 px-8 py-4 rounded-full text-white font-bold"
