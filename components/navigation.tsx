@@ -53,7 +53,7 @@ export function Navigation() {
           ))}
           <li>
             <a
-              href="/Farhan-A-Hanfee4.pdf"
+              href="/Farhan_A_Hanfee5.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 border border-primary text-primary hover:bg-primary/10 transition-colors text-sm font-mono"
@@ -103,7 +103,7 @@ export function Navigation() {
           ))}
           <li>
             <a
-              href="/Farhan-A-Hanfee4a.pdf"
+              href="/Farhan_A_Hanfee5.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 border border-primary text-primary hover:bg-primary/10 transition-colors text-sm font-mono"
