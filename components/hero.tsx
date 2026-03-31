@@ -111,12 +111,12 @@ export function Hero() {
 
           {/* Description */}
           <p className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg">
-            Full-Stack Developer with <span className="text-primary font-semibold">7+ years</span> of experience building modern web applications, custom Shopify platforms, and scalable backend APIs. I specialize in <span className="text-primary font-semibold">MERN stack, REST APIs, and AI-assisted development</span> to create efficient, scalable, and high-performance products. Delivered <span className="text-primary font-semibold">600+ projects</span> for global clients focusing on clean architecture, performance, and modern user experiences.
+            Full-Stack Developer with <span className="text-primary font-semibold">8+ years</span> of experience building modern web applications, custom Shopify platforms, and scalable backend APIs. I specialize in <span className="text-primary font-semibold">MERN stack, REST APIs, and AI-assisted development</span> to create efficient, scalable, and high-performance products. Delivered <span className="text-primary font-semibold">600+ projects</span> for global clients focusing on clean architecture, performance, and modern user experiences.
           </p>
 
           {/* Tech Stack */}
           <p className="text-sm text-muted-foreground mb-8 font-mono tracking-wide">
-            React • Next.js • Node.js • Python • MongoDB • Shopify • REST APIs • AI-Assisted Development
+            React • Next.js • Node.js • Python • Django • MongoDB • Shopify • REST APIs • AI-Assisted Development
           </p>
 
           {/* Contact Info */}
