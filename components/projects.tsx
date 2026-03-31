@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import { createPortal } from "react-dom"; // Modal ko layout se bahar nikalne ke liye
+import { createPortal } from "react-dom"; 
 import { X, ExternalLink } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -95,7 +95,7 @@ export function ProjectsSection() {
               width: '100%',
               maxWidth: '1000px',
               display: 'flex',
-              flexDirection: 'column', // Simple stack for safety
+              flexDirection: 'column', 
               borderRadius: '24px',
               border: '1px solid rgba(255,255,255,0.1)',
               overflow: 'hidden',
@@ -139,7 +139,7 @@ export function ProjectsSection() {
             </div>
           </div>
         </div>,
-        document.body // This moves the modal to the very end of <body> tag
+        document.body
       )}
     </section>
   );
