@@ -51,6 +51,7 @@ export function About() {
  const highlights = [
   "React / Next.js",
   "Node.js / Express",
+  "Python / Django", 
   "MongoDB",
   "REST APIs",
   "Shopify / Shopify Plus",
@@ -90,7 +91,7 @@ export function About() {
           >
             <p className="text-muted-foreground leading-relaxed">
 Hello! I'm Farhan, a Full-Stack Developer based in Indore, India with over 
-<span className="text-primary"> 7+ years of experience</span> building modern 
+<span className="text-primary"> 8+ years of experience</span> building modern 
 web applications, scalable APIs, and high-performance eCommerce platforms.
 I focus on creating robust digital products that combine clean UI,
 efficient backend systems, and performance-focused architecture.
@@ -107,7 +108,7 @@ and advanced platform functionality.
 <p className="text-muted-foreground leading-relaxed">
 In addition to frontend development, I work with modern full-stack
 technologies including <span className="text-primary">Node.js, React,
-Next.js, REST APIs, backend integrations, and AI-assisted development</span>.
+Next.js, REST APIs, Python, backend integrations, and AI-assisted development</span>.
 This allows me to build complete systems — from responsive user interfaces
 to scalable API-driven backend logic.
 </p>
