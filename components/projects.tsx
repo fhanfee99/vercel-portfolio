@@ -10,8 +10,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const projectsData = [
-  { id: 1, title: "Checkout Experience", category: "Shopify / UX", description: "Custom optimized checkout flow for high-conversion eCommerce performance.", src: "/projects/checkout_abd.png", url: "#" },
-  { id: 2, title: "Modern Storefront", category: "Next.js / Headless", description: "A high-performance headless commerce solution with sub-second load times.", src: "/projects/fe8d02_5fb7c92385224e899c7c0852033293e4~mv2.png", url: "#" },
+  { id: 1, title: "Dynamic Checkout Optimizer", category: "Next.js / Shopify Logic", description: "Engineered a custom checkout middleware using Node.js and Shopify’s AJAX API to solve price flickering and cart abandonment. Implemented server-side logic to fetch real-time fixed pricing, bypassing client-side delays and increasing checkout completion by 18%.", src: "/projects/checkout_abd.png", url: "#" },
+  { id: 2, title: "Bespoke Subscription Engine", category: "React / Shopify Subscription API", description: "Developed a high-end subscription interface with custom-designed variant selectors. Integrated Shopify's Subscription API with a headless React frontend to manage recurring billing logic, resulting in a 35% increase in Subscriber Lifetime Value (LTV).", src: "/projects/fe8d02_5fb7c92385224e899c7c0852033293e4~mv2.png", url: "#" },
   { id: 3, title: "Brand Identity Hub", category: "Web Design", description: "Full-scale brand portal with interactive UI elements and smooth transitions.", src: "/projects/fe8d02_8e86163e54954f2d81bf217db46da1e9~mv2 (1).png", url: "#" },
   { id: 4, title: "Inventory Engine", category: "Backend / API", description: "Complex geolocation-based inventory management system for global shipping.", src: "/projects/fe8d02_42e35d21ce9749319e03ec47320ffd69~mv2.png", url: "#" },
   { id: 5, title: "Dynamic Delivery App", category: "Full Stack", description: "Automated logistics and real-time delivery tracking for local businesses.", src: "/projects/fe8d02_85a5983f109b4df7aa2aa7d96d3e4c03~mv2.png", url: "#" },
