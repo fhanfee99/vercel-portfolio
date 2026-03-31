@@ -128,6 +128,13 @@ export function Hero() {
               <Mail className="h-4 w-4" />
               fhanfee99@gmail.com
             </a>
+            <a
+              href="mailto:ahanfeefarhan@gmail.com"
+              className="flex items-center gap-2 hover:text-primary transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              ahanfeefarhan@gmail.com
+            </a>
             <span className="flex items-center gap-2">
               <MapPin className="h-4 w-4" />
               Indore, India
