@@ -57,7 +57,7 @@ export default function ProjectsPage() {
 
       {/* Media Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projectsData.slice(0, 3).reverse().map((p) => (
+        {projectsData.map((p) => (
           <div
             key={p.id}
             className="group relative aspect-video bg-zinc-900 rounded-2xl overflow-hidden cursor-pointer border border-white/10"
