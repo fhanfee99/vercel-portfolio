@@ -136,6 +136,12 @@ export function ProjectsSection() {
                     Launch Project <ExternalLink size={18} />
                   </a>
                   )}
+                    {/* Optional: Message if no link exists */}
+                  {activeProject.url === "#" && (
+                    <div style={{ color: '#555', fontSize: '14px', fontStyle: 'italic', borderTop: '1px solid #222', paddingTop: '20px' }}>
+                      Internal Case Study — Available on Request
+                    </div>
+                  )}
                 </div>
             </div>
           </div>
