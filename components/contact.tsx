@@ -126,16 +126,6 @@ export function Contact() {
           </a>
         </div>
 
-        {/* Location */}
-        <div
-          className={`flex items-center justify-center gap-2 text-muted-foreground mb-10 transition-all duration-700 delay-400 font-mono text-sm ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <MapPin className="h-4 w-4 text-accent" />
-          <span className="neon-glow-secondary">Indore, India</span>
-        </div>
-
         {/* CTA Button */}
         <div
           className={`transition-all duration-700 delay-500 ${
