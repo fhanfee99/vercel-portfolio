@@ -115,8 +115,8 @@ export function ProjectsSection() {
                 <Image
                   src={item.src}
                   alt="Project Screenshot"
-                  width={800}
-                  height={600}
+                  width={1200}
+                  height={800}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
 
