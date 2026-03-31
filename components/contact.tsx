@@ -114,16 +114,6 @@ export function Contact() {
     </span>
   </a>
 
-          <a
-            href="tel:+918962633019"
-            className="group glow-box flex flex-col items-center gap-3 p-6 bg-gradient-to-br from-accent/10 to-primary/5 border border-accent/30 rounded-lg hover:border-accent/60 hover:shadow-lg hover:shadow-accent/20 transition-all duration-300"
-          >
-            <Phone className="h-8 w-8 text-accent group-hover:scale-110 transition-transform" />
-            <span className="text-foreground font-medium">Phone</span>
-            <span className="text-muted-foreground text-sm group-hover:text-accent transition-colors font-mono">
-              +91 8962633019
-            </span>
-          </a>
         </div>
 
         {/* CTA Button */}
