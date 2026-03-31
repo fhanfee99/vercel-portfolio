@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import { X, ExternalLink, ZoomIn } from "lucide-react";
+import { X, ExternalLink } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// --- 1. PROJECT DATA (JSON) ---
+// --- 1. PROJECT DATA (Isse aap update kar sakte hain) ---
 const projectsData = [
   {
     id: 1,
@@ -16,6 +16,7 @@ const projectsData = [
     category: "Shopify / UX",
     description: "Custom optimized checkout flow for high-conversion eCommerce performance.",
     src: "/projects/checkout_abd.png",
+    url: "https://your-link-here.com" // Yahan apni link daalein
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ const projectsData = [
     category: "Next.js / Headless",
     description: "A high-performance headless commerce solution with sub-second load times.",
     src: "/projects/fe8d02_5fb7c92385224e899c7c0852033293e4~mv2.png",
+    url: "https://your-link-here.com"
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ const projectsData = [
     category: "Web Design",
     description: "Full-scale brand portal with interactive UI elements and smooth transitions.",
     src: "/projects/fe8d02_8e86163e54954f2d81bf217db46da1e9~mv2 (1).png",
+    url: "https://your-link-here.com"
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ const projectsData = [
     category: "Backend / API",
     description: "Complex geolocation-based inventory management system for global shipping.",
     src: "/projects/fe8d02_42e35d21ce9749319e03ec47320ffd69~mv2.png",
+    url: "https://your-link-here.com"
   },
   {
     id: 5,
@@ -44,6 +48,7 @@ const projectsData = [
     category: "Full Stack",
     description: "Automated logistics and real-time delivery tracking for local businesses.",
     src: "/projects/fe8d02_85a5983f109b4df7aa2aa7d96d3e4c03~mv2.png",
+    url: "https://your-link-here.com"
   },
   {
     id: 6,
@@ -51,6 +56,7 @@ const projectsData = [
     category: "Shopify Plus",
     description: "Scaling a local brand to international markets with multi-currency support.",
     src: "/projects/fe8d02_04720a25d2a740839075e51980a10455~mv2.png",
+    url: "https://your-link-here.com"
   },
   {
     id: 7,
@@ -58,6 +64,7 @@ const projectsData = [
     category: "Core Web Vitals",
     description: "99+ PageSpeed score achievement for a heavy-traffic digital store.",
     src: "/projects/fe8d02_906939e4c0cc4e50b3c59983ed360e08~mv2.png",
+    url: "https://your-link-here.com"
   },
   {
     id: 8,
@@ -65,42 +72,28 @@ const projectsData = [
     category: "Node.js / Automation",
     description: "Custom internal tools to automate order processing and customer support.",
     src: "/projects/fe8d02_ff517fb7aab84cc483d6c5e95808af0c~mv2.png",
+    url: "https://your-link-here.com"
   }
 ];
 
-// --- 2. MAIN COMPONENT ---
 export function ProjectsSection() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeProject, setActiveProject] = useState<typeof projectsData[0] | null>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  // GSAP Entrance Animation
   useEffect(() => {
     if (!gridRef.current) return;
-
     const cards = gridRef.current.querySelectorAll(".project-card");
     cards.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 50, scale: 0.9 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6,
-          delay: index * 0.1,
-          scrollTrigger: {
-            trigger: card,
-            start: "top 90%",
-            toggleActions: "play none none reverse",
-          },
+      gsap.fromTo(card, 
+        { opacity: 0, y: 30 }, 
+        { 
+          opacity: 1, y: 0, duration: 0.5, delay: index * 0.1,
+          scrollTrigger: { trigger: card, start: "top 90%" } 
         }
       );
     });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+    return () => { ScrollTrigger.getAll().forEach((t) => t.kill()); };
   }, []);
 
   const openModal = (project: typeof projectsData[0]) => {
@@ -115,130 +108,82 @@ export function ProjectsSection() {
   };
 
   return (
-    <section className="relative py-24 bg-background overflow-hidden">
-      {/* Aesthetic Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-
+    <section className="relative py-20 bg-black text-white min-h-screen font-sans">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Header Section */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4">
-            FEATURED <span className="text-primary">PROJECTS</span>
+        
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
+            Featured <span className="text-blue-500">Projects</span>
           </h2>
-          <div className="flex items-center justify-center gap-2 font-mono text-sm text-muted-foreground uppercase tracking-[0.2em]">
-            <span className="w-8 h-[1px] bg-primary/50" />
-            600+ Deliveries Completed
-            <span className="w-8 h-[1px] bg-primary/50" />
-          </div>
-        </div>
-
-        {/* Info Card */}
-        <div className="glassmorphic p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl mb-20 max-w-4xl mx-auto text-center md:text-left">
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            I architect scalable eCommerce platforms and web applications using modern 
-            technologies. From **custom Shopify storefronts** to **full-stack Node.js 
-            integrations**, I focus on performance, conversion, and seamless user experiences.
+          <p className="text-gray-500 font-mono text-sm tracking-widest uppercase">
+            // 600+ Deliveries Completed
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Info Card - Using Standard Tailwind */}
+        <div className="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl mb-16 max-w-3xl mx-auto">
+          <p className="text-gray-400 leading-relaxed text-center">
+            I architect scalable eCommerce platforms and web applications. From custom 
+            Shopify storefronts to full-stack Node.js integrations, I focus on performance 
+            and seamless user experiences.
+          </p>
+        </div>
+
+        {/* Grid */}
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.map((project) => (
             <div
               key={project.id}
-              className="project-card group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer bg-muted border border-white/5"
+              className="project-card group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer border border-zinc-800 bg-zinc-900"
               onClick={() => openModal(project)}
             >
               <Image
                 src={project.src}
                 alt={project.title}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
               />
-              
-              {/* Overlay with Content */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 transition-opacity duration-300">
-                <span className="text-primary font-mono text-[10px] tracking-widest uppercase mb-2">
-                  {project.category}
-                </span>
-                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-400 line-clamp-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                  {project.description}
-                </p>
-              </div>
-
-              {/* Zoom Indicator */}
-              <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                <ZoomIn size={18} className="text-white" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex flex-col justify-end p-6">
+                <p className="text-blue-400 text-xs font-mono mb-1 uppercase">{project.category}</p>
+                <h3 className="text-xl font-bold">{project.title}</h3>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* --- MODAL SYSTEM --- */}
+      {/* --- MODAL --- */}
       {isOpen && activeProject && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 animate-in fade-in duration-300"
-          onClick={closeModal}
-        >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" />
-
-          {/* Modal Box */}
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={closeModal}>
+          <div className="absolute inset-0 bg-black/95 backdrop-blur-sm" />
+          
           <div 
-            className="relative w-full max-w-6xl bg-zinc-950 rounded-3xl overflow-hidden border border-white/10 shadow-2xl transition-all"
+            className="relative w-full max-w-4xl bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <button 
-              onClick={closeModal}
-              className="absolute top-6 right-6 z-[110] p-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all"
-            >
+            <button onClick={closeModal} className="absolute top-4 right-4 z-[110] p-2 bg-white/10 rounded-full hover:bg-white/20">
               <X size={20} />
             </button>
 
-            <div className="grid lg:grid-cols-3">
-              {/* Image Side */}
-              <div className="lg:col-span-2 relative aspect-video lg:aspect-auto h-full min-h-[300px] bg-black">
-                <Image
-                  src={activeProject.src}
-                  alt={activeProject.title}
-                  fill
-                  className="object-contain"
-                  priority
-                />
+            <div className="grid md:grid-cols-2">
+              <div className="relative aspect-video md:aspect-auto bg-black h-full">
+                <Image src={activeProject.src} alt={activeProject.title} fill className="object-contain" />
               </div>
-
-              {/* Content Side */}
-              <div className="p-8 md:p-12 flex flex-col justify-center">
-                <span className="text-primary font-mono text-xs tracking-[0.2em] uppercase mb-4">
-                  {activeProject.category}
-                </span>
-                <h2 className="text-3xl font-bold text-white mb-6 tracking-tight">
-                  {activeProject.title}
-                </h2>
-                <p className="text-muted-foreground leading-relaxed mb-8">
-                  {activeProject.description}
-                </p>
+              <div className="p-8">
+                <span className="text-blue-500 font-mono text-xs uppercase">{activeProject.category}</span>
+                <h2 className="text-3xl font-bold mt-2 mb-4">{activeProject.title}</h2>
+                <p className="text-gray-400 mb-8">{activeProject.description}</p>
                 
-                <div className="space-y-4">
-                  <div className="h-[1px] bg-white/10 w-full" />
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-zinc-500">Year</span>
-                    <span className="text-white">2026</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-zinc-500">Status</span>
-                    <span className="text-green-400">Live & Optimized</span>
-                  </div>
-                </div>
-
-                <button className="mt-10 w-full py-4 bg-primary text-primary-foreground font-bold rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-all">
-                  View Case Study <ExternalLink size={18} />
-                </button>
+                {/* External Link Button */}
+                <a 
+                  href={activeProject.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all"
+                >
+                  Visit Project <ExternalLink size={18} />
+                </a>
               </div>
             </div>
           </div>
