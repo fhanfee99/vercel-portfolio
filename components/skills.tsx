@@ -169,7 +169,7 @@ export function Skills() {
           }`}
         >
           {[
-  { value: "7+", label: "Years Experience" },
+  { value: "8+", label: "Years Experience" },
   { value: "600+", label: "Projects Delivered" },
   { value: "50+", label: "Global Clients" },
   { value: "80–90+", label: "Performance Score" },
