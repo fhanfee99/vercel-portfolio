@@ -89,7 +89,7 @@ export function Contact() {
 
         {/* Contact Cards */}
         <div
-          className={`grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-12 transition-all duration-700 delay-300 ${
+          className={`grid sm:grid-cols-2 md:grid-cols-2 gap-4 mb-12 transition-all duration-700 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
